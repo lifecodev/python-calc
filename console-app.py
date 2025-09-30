@@ -60,7 +60,6 @@ class MathExpressionValidator(ast.NodeVisitor):
 def expression_validate(expression):
     try:
         tree = ast.parse(expression, mode='eval')
-        print(ast.dump(tree))
         validator = MathExpressionValidator()
         validator.visit(tree)
         return validator.is_safe
